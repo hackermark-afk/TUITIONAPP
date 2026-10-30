@@ -6,6 +6,18 @@
 const API = {
   TOKEN_KEY: "tuitionapp_auth_token",
   USER_KEY: "tuitionapp_user_data",
+  SERVER_URL_KEY: "tuitionapp_server_url",
+
+  getServerUrl() {
+    return localStorage.getItem(this.SERVER_URL_KEY) || "";
+  },
+
+  setServerUrl(url) {
+    if (url) {
+      url = url.trim().replace(/\/+$/, "");
+    }
+    localStorage.setItem(this.SERVER_URL_KEY, url || "");
+  },
 
   getToken() {
     return localStorage.getItem(this.TOKEN_KEY);
@@ -30,38 +42,51 @@ const API = {
   },
 
   async request(endpoint, options = {}) {
-    const url = endpoint.startsWith("http") ? endpoint : `/api${endpoint}`;
-    const headers = {
-      "Content-Type": "application/json",
-      ...(options.headers || {})
-    };
+    const serverUrl = this.getServerUrl();
 
-    const token = this.getToken();
-    if (token) {
-      headers["Authorization"] = `Bearer ${token}`;
-    }
-
-    try {
-      const resp = await fetch(url, {
-        ...options,
-        headers
-      });
-
-      if (resp.status === 401) {
-        this.clearSession();
-        window.dispatchEvent(new CustomEvent("auth:required"));
-        throw new Error("Session expired. Please log in again.");
+    // 1. If an external server URL is explicitly configured, attempt remote fetch
+    if (serverUrl && serverUrl.startsWith("http")) {
+      const url = `${serverUrl}/api${endpoint}`;
+      const headers = {
+        "Content-Type": "application/json",
+        ...(options.headers || {})
+      };
+      const token = this.getToken();
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
       }
 
-      const json = await resp.json();
-      if (!resp.ok) {
-        throw new Error(json.message || `Request failed with status ${resp.status}`);
+      try {
+        const resp = await fetch(url, { ...options, headers });
+        if (resp.status === 401) {
+          this.clearSession();
+          window.dispatchEvent(new CustomEvent("auth:required"));
+          throw new Error("Session expired. Please log in again.");
+        }
+        const contentType = resp.headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          const json = await resp.json();
+          if (!resp.ok) {
+            throw new Error(json.message || `Request failed with status ${resp.status}`);
+          }
+          return json;
+        }
+      } catch (err) {
+        console.warn("External server request failed, falling back to local database:", err);
       }
-      return json;
-    } catch (err) {
-      console.error(`API Error on [${options.method || "GET"} ${endpoint}]:`, err);
-      throw err;
     }
+
+    // 2. Default & Standalone Offline Mode: Handle instantly in-app with LocalDB
+    if (window.LocalDB && typeof window.LocalDB.handle === "function") {
+      try {
+        return await window.LocalDB.handle(endpoint, options);
+      } catch (err) {
+        console.error(`LocalDB Error on [${options.method || "GET"} ${endpoint}]:`, err);
+        throw err;
+      }
+    }
+
+    throw new Error("Local database engine not loaded. Please restart the app.");
   },
 
   // Auth Endpoints

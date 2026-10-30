@@ -69,6 +69,19 @@ const AuthComponent = {
               </div>
             </div>
 
+            <!-- Standalone In-App Database Active Badge -->
+            <div style="margin-top: 1rem; text-align: center;">
+              <span style="font-size: 0.78rem; color: #166534; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #f0fdf4; border: 1px solid #bbf7d0; font-weight: 600;">
+                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e;"></span>
+                <span>In-App Database Active • No Server Needed</span>
+              </span>
+            </div>
+            <div style="margin-top: 0.5rem; text-align: center;">
+              <a href="javascript:void(0)" id="link-server-config" style="font-size: 0.72rem; color: #94a3b8; text-decoration: none;">
+                ⚙️ Optional Server / Reset Data
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -104,6 +117,13 @@ const AuthComponent = {
     document.getElementById("link-forgot-password").addEventListener("click", () => {
       AuthComponent.renderForgotPasswordModal();
     });
+
+    const serverCfgBtn = document.getElementById("link-server-config");
+    if (serverCfgBtn) {
+      serverCfgBtn.addEventListener("click", () => {
+        AuthComponent.renderServerConfigModal();
+      });
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -259,5 +279,58 @@ const AuthComponent = {
         }
       }
     });
+  },
+
+  renderServerConfigModal() {
+    const current = API.getServerUrl();
+    App.showModal({
+      title: "Storage & Optional Server Settings",
+      content: `
+        <div>
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1rem;">
+            <div style="font-weight: 700; color: #166534; font-size: 0.82rem; margin-bottom: 4px;">📱 Standalone In-App Mode (Active)</div>
+            <p style="font-size: 0.78rem; color: #15803d; margin: 0; line-height: 1.4;">
+              This app is completely standalone! All students, fees, attendance, and test data are stored safely inside your phone. No computer or server connection is required.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Optional Central Server URL</label>
+            <input type="text" id="cfg-server-url" class="form-control" placeholder="Leave blank for standalone in-app mode" value="${current}">
+            <small style="color: var(--text-muted); font-size: 0.72rem; display: block; margin-top: 4px;">
+              Only enter a URL if you are hosting a centralized server. Otherwise leave blank for 100% offline standalone usage.
+            </small>
+          </div>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-sample-data" style="width: 100%; color: #dc2626;">
+              🔄 Reset In-App Database to Sample Data
+            </button>
+          </div>
+        </div>
+      `,
+      confirmText: "Save Settings",
+      onConfirm: () => {
+        const val = document.getElementById("cfg-server-url").value.trim();
+        API.setServerUrl(val);
+        App.showToast("Settings updated successfully!", "success");
+        App.closeModal();
+        AuthComponent.renderLogin();
+      }
+    });
+
+    setTimeout(() => {
+      const resetBtn = document.getElementById("btn-reset-sample-data");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          if (confirm("Reset local database to original sample data? Any new students added locally will be reset.")) {
+            localStorage.removeItem("tuitionapp_local_db_v2");
+            App.showToast("Database reset to sample records!", "success");
+            App.closeModal();
+            AuthComponent.renderLogin();
+          }
+        });
+      }
+    }, 100);
   }
 };

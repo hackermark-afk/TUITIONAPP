@@ -7,6 +7,7 @@ const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
   "/css/style.css",
+  "/js/local_db.js",
   "/js/api.js",
   "/js/app.js",
   "/manifest.json"

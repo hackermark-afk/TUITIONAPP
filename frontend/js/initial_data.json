@@ -1,0 +1,664 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "mobile_number": "9876543210",
+      "full_name": "Dr. Rajesh Sharma",
+      "password_hash": "b0d206250007cefb05910ebed37d653e226dd163bb81e952500688424ee6b4dd",
+      "salt": "c14014027ee505585349d4b40f7a707c",
+      "role": "Super Admin",
+      "status": "Active",
+      "email": null,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "mobile_number": "9811122233",
+      "full_name": "Pooja Verma",
+      "password_hash": "b4dc860efd7f4c29827b3ddb645b8a718103c5511a4d4723ac9eb53e8185bf84",
+      "salt": "361f75f3d26b46b5cfd1cb8786057750",
+      "role": "Admin",
+      "status": "Active",
+      "email": null,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "mobile_number": "9822233344",
+      "full_name": "Amitabh Sen",
+      "password_hash": "3fa42d980dbf20b004c26f07e1c6cd7ad648c63b93f0b8682bd53d2865ea62cd",
+      "salt": "4faf512c02ce51d6cb6629e54c0ef5c8",
+      "role": "Teacher",
+      "status": "Active",
+      "email": null,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "mobile_number": "9833344455",
+      "full_name": "Sunita Rao",
+      "password_hash": "f6f7c59b8de19c7cf9a6efeea1521a9c0716aed6d57dd969c332f68f7de07958",
+      "salt": "50514aaf20fd643e40d3587047173c7e",
+      "role": "Teacher",
+      "status": "Active",
+      "email": null,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "centres": [
+    {
+      "id": 1,
+      "name": "Apex Main Campus",
+      "address": "Plot 12, South Extension Part 2, New Delhi",
+      "contact_number": "011-24681357",
+      "description": "Main administrative coaching hub with 6 smart lecture halls",
+      "assigned_teacher_id": 1,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "name": "Apex West Branch",
+      "address": "B-45, Janakpuri District Centre, New Delhi",
+      "contact_number": "011-25792468",
+      "description": "Secondary branch for Science and Mathematics batches",
+      "assigned_teacher_id": 3,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "name": "Apex Noida City Centre",
+      "address": "Tower C, Sector 62, Noida, Uttar Pradesh",
+      "contact_number": "0120-4321098",
+      "description": "Noida branch catering to board exams and foundation courses",
+      "assigned_teacher_id": 4,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "teacher_centre_assignments": [
+    {
+      "teacher_id": 1,
+      "centre_id": 1,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "teacher_id": 1,
+      "centre_id": 2,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "teacher_id": 1,
+      "centre_id": 3,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "teacher_id": 2,
+      "centre_id": 1,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "teacher_id": 2,
+      "centre_id": 2,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "teacher_id": 3,
+      "centre_id": 2,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "teacher_id": 4,
+      "centre_id": 3,
+      "assigned_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "name": "Class 9",
+      "description": "Foundation Batch for CBSE & ICSE Class 9",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "name": "Class 10",
+      "description": "Board Preparation Batch for Class 10",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "name": "Class 11 - Science",
+      "description": "Physics, Chemistry, Mathematics & Biology",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "name": "Class 12 - Science",
+      "description": "Board & Competitive Examination Prep",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "batches": [
+    {
+      "id": 1,
+      "name": "Morning Star - Class 10",
+      "class_id": 2,
+      "centre_id": 1,
+      "batch_timing": "07:00 AM - 08:30 AM",
+      "teacher_id": 1,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "name": "Evening Prodigy - Class 10",
+      "class_id": 2,
+      "centre_id": 1,
+      "batch_timing": "04:30 PM - 06:00 PM",
+      "teacher_id": 2,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "name": "Pinnacle 12 - Class 12",
+      "class_id": 4,
+      "centre_id": 2,
+      "batch_timing": "05:00 PM - 07:00 PM",
+      "teacher_id": 3,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "name": "Foundation 9 - Class 9",
+      "class_id": 1,
+      "centre_id": 3,
+      "batch_timing": "04:00 PM - 05:30 PM",
+      "teacher_id": 4,
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "student_name": "Aarav Sharma",
+      "class_id": 2,
+      "batch_id": 1,
+      "centre_id": 1,
+      "admission_date": "2026-04-10",
+      "monthly_fee": 3500.0,
+      "due_date_day": 5,
+      "address": "Flat 402, Royal Residency, Saket, New Delhi",
+      "notes": "Excellent in Mathematics, needs practice in Physics numericals.",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "student_name": "Ananya Gupta",
+      "class_id": 2,
+      "batch_id": 2,
+      "centre_id": 1,
+      "admission_date": "2026-04-12",
+      "monthly_fee": 3500.0,
+      "due_date_day": 7,
+      "address": "House 18, Block C, Greater Kailash 1, New Delhi",
+      "notes": "Very attentive student, top ranker in monthly assessments.",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "student_name": "Rohan Patel",
+      "class_id": 4,
+      "batch_id": 3,
+      "centre_id": 2,
+      "admission_date": "2026-04-15",
+      "monthly_fee": 4500.0,
+      "due_date_day": 10,
+      "address": "C-12, Vikaspuri, New Delhi",
+      "notes": "Preparing for Engineering entrances.",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "student_name": "Ishaani Mehra",
+      "class_id": 1,
+      "batch_id": 4,
+      "centre_id": 3,
+      "admission_date": "2026-05-01",
+      "monthly_fee": 3000.0,
+      "due_date_day": 5,
+      "address": "E-99, Sector 50, Noida",
+      "notes": "Consistent attendance, good command on English.",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 5,
+      "student_name": "Kabir Das",
+      "class_id": 2,
+      "batch_id": 1,
+      "centre_id": 1,
+      "admission_date": "2026-06-10",
+      "monthly_fee": 3500.0,
+      "due_date_day": 5,
+      "address": "34 Green Park, New Delhi",
+      "notes": "Joined mid-session.",
+      "status": "Active",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "student_parents": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "father_name": "Manoj Sharma",
+      "father_mobile": "9812345670",
+      "father_whatsapp": "9812345670",
+      "mother_name": "Suman Sharma",
+      "mother_mobile": "9812345671",
+      "mother_whatsapp": "9812345671",
+      "guardian_name": "Manoj Sharma",
+      "relationship": "Father",
+      "primary_whatsapp": "9812345670",
+      "alternate_mobile": "9812345671",
+      "email": "manoj.sharma@example.com",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "student_id": 2,
+      "father_name": "Sanjay Gupta",
+      "father_mobile": "9823456781",
+      "father_whatsapp": "9823456781",
+      "mother_name": "Rekha Gupta",
+      "mother_mobile": "9823456782",
+      "mother_whatsapp": "9823456782",
+      "guardian_name": "Rekha Gupta",
+      "relationship": "Mother",
+      "primary_whatsapp": "9823456782",
+      "alternate_mobile": "9823456781",
+      "email": "rekha.gupta@example.com",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "student_id": 3,
+      "father_name": "Kirit Patel",
+      "father_mobile": "9834567892",
+      "father_whatsapp": "9834567892",
+      "mother_name": "Hansaben Patel",
+      "mother_mobile": "",
+      "mother_whatsapp": "",
+      "guardian_name": "Kirit Patel",
+      "relationship": "Father",
+      "primary_whatsapp": "9834567892",
+      "alternate_mobile": "",
+      "email": "kiritpatel@example.com",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "student_id": 4,
+      "father_name": "Ramesh Mehra",
+      "father_mobile": "9845678903",
+      "father_whatsapp": "9845678903",
+      "mother_name": "Neeta Mehra",
+      "mother_mobile": "9845678904",
+      "mother_whatsapp": "9845678904",
+      "guardian_name": "Ramesh Mehra",
+      "relationship": "Father",
+      "primary_whatsapp": "9845678903",
+      "alternate_mobile": "9845678904",
+      "email": "ramesh.mehra@example.com",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 5,
+      "student_id": 5,
+      "father_name": "Alok Das",
+      "father_mobile": "9856789014",
+      "father_whatsapp": "9856789014",
+      "mother_name": "Bina Das",
+      "mother_mobile": "",
+      "mother_whatsapp": "",
+      "guardian_name": "Alok Das",
+      "relationship": "Father",
+      "primary_whatsapp": "9856789014",
+      "alternate_mobile": "",
+      "email": "alok.das@example.com",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "invoices": [
+    {
+      "id": 1,
+      "invoice_number": "INV-2026-10-001",
+      "student_id": 1,
+      "centre_id": 1,
+      "billing_month": "October 2026",
+      "fee_amount": 3500.0,
+      "due_date": "2026-10-05",
+      "status": "Pending",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "invoice_number": "INV-2026-10-002",
+      "student_id": 2,
+      "centre_id": 1,
+      "billing_month": "October 2026",
+      "fee_amount": 3500.0,
+      "due_date": "2026-10-07",
+      "status": "Paid",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "invoice_number": "INV-2026-10-003",
+      "student_id": 3,
+      "centre_id": 2,
+      "billing_month": "October 2026",
+      "fee_amount": 4500.0,
+      "due_date": "2026-10-30",
+      "status": "Pending",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "invoice_number": "INV-2026-10-004",
+      "student_id": 4,
+      "centre_id": 3,
+      "billing_month": "October 2026",
+      "fee_amount": 3000.0,
+      "due_date": "2026-10-27",
+      "status": "Partially Paid",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 5,
+      "invoice_number": "INV-2026-11-005",
+      "student_id": 5,
+      "centre_id": 1,
+      "billing_month": "November 2026",
+      "fee_amount": 3500.0,
+      "due_date": "2026-11-03",
+      "status": "Pending",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "receipt_number": "REC-2026-10-002",
+      "invoice_id": 2,
+      "student_id": 2,
+      "amount_received": 3500.0,
+      "payment_date": "2026-10-10",
+      "payment_method": "UPI",
+      "transaction_reference": "TXN123456789",
+      "notes": "Tuition Fee Installment",
+      "recorded_by": 1,
+      "status": "Successful",
+      "created_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "receipt_number": "REC-2026-10-004",
+      "invoice_id": 4,
+      "student_id": 4,
+      "amount_received": 1500.0,
+      "payment_date": "2026-10-10",
+      "payment_method": "Cash",
+      "transaction_reference": "TXN123456789",
+      "notes": "Tuition Fee Installment",
+      "recorded_by": 1,
+      "status": "Successful",
+      "created_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "attendance": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "centre_id": 1,
+      "class_id": 2,
+      "batch_id": 1,
+      "attendance_date": "2026-10-30",
+      "status": "Absent",
+      "marked_by": 1,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "student_id": 2,
+      "centre_id": 1,
+      "class_id": 2,
+      "batch_id": 2,
+      "attendance_date": "2026-10-30",
+      "status": "Present",
+      "marked_by": 1,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 3,
+      "student_id": 3,
+      "centre_id": 2,
+      "class_id": 4,
+      "batch_id": 3,
+      "attendance_date": "2026-10-30",
+      "status": "Present",
+      "marked_by": 1,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 4,
+      "student_id": 4,
+      "centre_id": 3,
+      "class_id": 1,
+      "batch_id": 4,
+      "attendance_date": "2026-10-30",
+      "status": "Present",
+      "marked_by": 1,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 5,
+      "student_id": 5,
+      "centre_id": 1,
+      "class_id": 2,
+      "batch_id": 1,
+      "attendance_date": "2026-10-30",
+      "status": "Present",
+      "marked_by": 1,
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "tests": [
+    {
+      "id": 1,
+      "title": "Class 10 Science Weekly Assessment #4",
+      "centre_id": 1,
+      "class_id": 2,
+      "batch_id": 1,
+      "subject": "Physics & Chemistry",
+      "test_date": "2026-10-25",
+      "total_marks": 50.0,
+      "created_by": 1,
+      "created_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "test_results": [
+    {
+      "id": 1,
+      "test_id": 1,
+      "student_id": 1,
+      "marks_obtained": 44.5,
+      "rank": 1,
+      "remarks": "Top performer. Outstanding conceptual clarity in electricity problems.",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    },
+    {
+      "id": 2,
+      "test_id": 1,
+      "student_id": 5,
+      "marks_obtained": 38.0,
+      "rank": 2,
+      "remarks": "Good effort. Needs to work on chemical equation balance.",
+      "created_at": "2026-10-30T08:26:23.646219",
+      "updated_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "reminder_logs": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "invoice_id": 1,
+      "parent_name": "Manoj Sharma",
+      "phone_used": "919812345670",
+      "message_text": "Namaste Manoj Sharma ji,\n\nAapke bachche Aarav Sharma ki October 2026 ki coaching fee abhi pending hai.\n\nStudent Details:\nClass: Class 10\nBatch: Morning Star - Class 10\nCentre: Apex Main Campus\nPending Amount: \u20b93500.00\nDue Date: 2026-10-05\n\nKripya suvidha ke anusaar fee jama kar dein.\nUPI ID: tuitionapp@icici\n\nDhanyavaad,\nApex Coaching Institute",
+      "reminder_type": "Fee Pending",
+      "teacher_id": 1,
+      "status": "Prepared",
+      "created_at": "2026-10-30T09:00:04.728513"
+    },
+    {
+      "id": 2,
+      "student_id": 1,
+      "invoice_id": 1,
+      "parent_name": "Manoj Sharma",
+      "phone_used": "919812345670",
+      "message_text": "Namaste Manoj Sharma ji,\n\nAapke bachche Aarav Sharma ki October 2026 ki coaching fee abhi pending hai.\n\nStudent Details:\nClass: Class 10\nBatch: Morning Star - Class 10\nCentre: Apex Main Campus\nPending Amount: \u20b93500.00\nDue Date: 2026-10-05\n\nKripya suvidha ke anusaar fee jama kar dein.\nUPI ID: tuitionapp@icici\n\nDhanyavaad,\nApex Coaching Institute",
+      "reminder_type": "Fee Pending",
+      "teacher_id": 1,
+      "status": "Prepared",
+      "created_at": "2026-10-30T09:00:28.762919"
+    }
+  ],
+  "message_templates": [
+    {
+      "id": 1,
+      "name": "Default Pending Fee Reminder (Hinglish)",
+      "template_type": "fee_reminder",
+      "content": "Namaste {{parent_name}} ji,\n\nAapke bachche {{student_name}} ki {{billing_month}} ki coaching fee abhi pending hai.\n\nStudent Details:\nClass: {{class_name}}\nBatch: {{batch_name}}\nCentre: {{centre_name}}\nPending Amount: \u20b9{{outstanding_amount}}\nDue Date: {{due_date}}\n\nKripya suvidha ke anusaar fee jama kar dein.\nUPI ID: {{upi_id}}\n\nDhanyavaad,\n{{institute_name}}",
+      "is_default": 1,
+      "created_at": "2026-10-30 02:56:23"
+    },
+    {
+      "id": 2,
+      "name": "Student Absence Alert (Hinglish)",
+      "template_type": "absence_alert",
+      "content": "Namaste {{parent_name}} ji,\n\nAapka bachcha {{student_name}} aaj ({{date}}) coaching class ({{batch_name}} - {{centre_name}}) mein absent hai.\n\nKripya anupsthiti ka kaaran saajha karein yadi avashyak ho.\n\nDhanyavaad,\n{{institute_name}}",
+      "is_default": 1,
+      "created_at": "2026-10-30 02:56:23"
+    },
+    {
+      "id": 3,
+      "name": "Weekly Sunday Test Report (Hinglish)",
+      "template_type": "test_report",
+      "content": "Namaste {{parent_name}} ji,\n\n{{student_name}} ka {{subject}} Weekly Test ka result:\n\nMarks Obtained: {{marks}} / {{total_marks}}\nBatch Rank: #{{rank}}\nTeacher Remarks: {{remarks}}\n\nHum aapke bachche ke behtar pradarshan ke liye lagataar prayasrat hain.\n\nDhanyavaad,\n{{institute_name}}",
+      "is_default": 1,
+      "created_at": "2026-10-30 02:56:23"
+    },
+    {
+      "id": 4,
+      "name": "Payment Receipt Confirmation",
+      "template_type": "payment_receipt",
+      "content": "Namaste {{parent_name}} ji,\n\n{{student_name}} ki fee prapt ho gayi hai.\n\nReceipt No: {{receipt_number}}\nAmount: \u20b9{{amount}}\nMonth: {{billing_month}}\nPayment Method: {{payment_method}}\nDate: {{date}}\n\nDhanyavaad,\n{{institute_name}}",
+      "is_default": 1,
+      "created_at": "2026-10-30 02:56:23"
+    }
+  ],
+  "enquiries": [
+    {
+      "id": 1,
+      "student_name": "Varun Khanna",
+      "parent_name": "Deepak Khanna",
+      "contact_number": "9899112233",
+      "class_id": 2,
+      "centre_id": 1,
+      "enquiry_date": "2026-10-28",
+      "notes": "Interested in Class 10 weekend batch. Wants demo class.",
+      "status": "New",
+      "created_at": "2026-10-30T08:26:23.646219"
+    }
+  ],
+  "settings": [
+    {
+      "key": "institute_name",
+      "value": "Apex Coaching Institute",
+      "description": "Institute Display Name"
+    },
+    {
+      "key": "institute_upi_id",
+      "value": "tuitionapp@icici",
+      "description": "Default UPI ID for Fee Collection"
+    },
+    {
+      "key": "institute_phone",
+      "value": "+91 98765 43210",
+      "description": "Institute Contact Number"
+    },
+    {
+      "key": "institute_address",
+      "value": "123 Education Hub, Sector 15, Knowledge Park",
+      "description": "Official Address"
+    },
+    {
+      "key": "current_academic_year",
+      "value": "2026-2027",
+      "description": "Academic Session"
+    },
+    {
+      "key": "allow_teacher_registration",
+      "value": "1",
+      "description": "Allow teachers to register directly"
+    }
+  ]
+}
