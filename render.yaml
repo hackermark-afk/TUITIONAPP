@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tuitionapp
+    env: python
+    buildCommand: ""
+    startCommand: python3 run_server.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0

@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+node_modules/
+android/app/build/
+android/.gradle/
+android/build/
+*.db-journal
+*.db-wal
+*.db-shm
+tuitionapp-ready.zip
+tuitionapp-github.zip

@@ -1,0 +1,2 @@
+# TUITIONAPP relies strictly on Python standard library modules
+# No external pip dependencies required.
