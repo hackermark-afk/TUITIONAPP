@@ -8,41 +8,56 @@ const App = {
   currentUser: null,
 
   async init() {
-    // Check if user is authenticated
+    // 1. Always bind Global Event Listeners first before checking auth!
+    window.addEventListener("auth:required", () => this.showAuthView());
+    window.addEventListener("auth:success", (e) => this.handleAuthSuccess(e.detail));
+
+    // 2. Check if user has an existing session
     const token = API.getToken();
+    const cachedUser = API.getCurrentUser();
+
     if (!token) {
       this.showAuthView();
       return;
     }
 
+    if (cachedUser) {
+      this.currentUser = cachedUser;
+      this.showAppView();
+      this.navigate("dashboard");
+      return;
+    }
+
     try {
       const resp = await API.getMe();
-      this.currentUser = resp.user;
+      this.currentUser = resp.user || resp.data;
       API.setSession(token, this.currentUser);
       this.showAppView();
       this.navigate("dashboard");
     } catch {
       this.showAuthView();
     }
+  },
 
-    // Global Event Listeners
-    window.addEventListener("auth:required", () => this.showAuthView());
-    window.addEventListener("auth:success", (e) => {
-      this.currentUser = e.detail;
-      this.showAppView();
-      this.navigate("dashboard");
-    });
+  handleAuthSuccess(user) {
+    this.currentUser = user || API.getCurrentUser() || {};
+    this.showAppView();
+    this.navigate("dashboard");
   },
 
   showAuthView() {
-    document.getElementById("app-view").style.display = "none";
-    document.getElementById("auth-view").style.display = "block";
+    const appEl = document.getElementById("app-view");
+    const authEl = document.getElementById("auth-view");
+    if (appEl) appEl.style.display = "none";
+    if (authEl) authEl.style.display = "block";
     AuthComponent.renderLogin();
   },
 
   showAppView() {
-    document.getElementById("auth-view").style.display = "none";
-    document.getElementById("app-view").style.display = "flex";
+    const authEl = document.getElementById("auth-view");
+    const appEl = document.getElementById("app-view");
+    if (authEl) authEl.style.display = "none";
+    if (appEl) appEl.style.display = "flex";
     this.renderLayout();
   },
 
@@ -50,10 +65,13 @@ const App = {
     const user = this.currentUser || {};
     const isAdmin = ["Super Admin", "Admin"].includes(user.role);
 
-    // Update User Profile Widget
-    document.getElementById("user-name-display").textContent = user.full_name || "Teacher";
-    document.getElementById("user-role-display").textContent = user.role || "Faculty";
-    document.getElementById("user-avatar-initials").textContent = (user.full_name || "T")[0].toUpperCase();
+    // Update User Profile Widget safely
+    const nameEl = document.getElementById("user-name-display");
+    const roleEl = document.getElementById("user-role-display");
+    const avatarEl = document.getElementById("user-avatar-initials");
+    if (nameEl) nameEl.textContent = user.full_name || "Teacher";
+    if (roleEl) roleEl.textContent = user.role || "Faculty";
+    if (avatarEl) avatarEl.textContent = (user.full_name || "T")[0].toUpperCase();
 
     // Show/Hide Admin Nav Items
     const adminNav = document.getElementById("nav-item-admin");

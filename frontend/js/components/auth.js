@@ -137,6 +137,9 @@ const AuthComponent = {
         if (res.success && res.data) {
           API.setSession(res.data.token, res.data);
           App.showToast("Welcome back! Login successful.", "success");
+          if (typeof App !== "undefined" && typeof App.handleAuthSuccess === "function") {
+            App.handleAuthSuccess(res.data);
+          }
           window.dispatchEvent(new CustomEvent("auth:success", { detail: res.data }));
         }
       } catch (err) {
@@ -229,6 +232,9 @@ const AuthComponent = {
         if (res.success && res.data) {
           API.setSession(res.data.token, res.data);
           App.showToast("Account created successfully!", "success");
+          if (typeof App !== "undefined" && typeof App.handleAuthSuccess === "function") {
+            App.handleAuthSuccess(res.data);
+          }
           window.dispatchEvent(new CustomEvent("auth:success", { detail: res.data }));
         }
       } catch (err) {
